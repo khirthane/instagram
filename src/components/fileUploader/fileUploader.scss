@@ -1,0 +1,35 @@
+.fileUploader {
+  padding: 20px;
+  background-color: var(--dark-grey);
+  min-height: 200px;
+}
+.uploadContainer {
+  user-select: none;
+  pointer-events: none;
+  margin-top: 20px;
+}
+
+.thumbsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.thumb {
+  display: inline-flex;
+  height: 100px;
+  padding: 4px;
+}
+
+.thumbInner {
+  display: flex;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.img {
+  display: block;
+  width: auto;
+  height: 100%;
+}

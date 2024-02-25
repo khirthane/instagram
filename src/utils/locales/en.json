@@ -1,0 +1,23 @@
+{
+  "username": "Username",
+  "password": "Password",
+  "emailId": "Email Id",
+  "retypePassword": "Retype Password",
+  "loginToYourAccount": "Login to your account",
+  "createANewAccount": "Create a new account",
+  "signIn": "Sign In",
+  "signUp": "Sign Up",
+  "alreadyHaveAnAccount": "already have an account?",
+  "donthaveAccount": "Don't have any account?",
+  "loading": "Loading...",
+  "home": "Home",
+  "profile": "Profile",
+  "explore": "Explore",
+  "settings": "Settings",
+  "createPost": "Create Post",
+  "post": "Post",
+  "caption": "Caption",
+  "photos": "Photos",
+  "tags": "Tags",
+  "location": "Location"
+}

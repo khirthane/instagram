@@ -1,0 +1,51 @@
+@import 'utils/styles/_color.scss';
+
+body {
+  color: var(--light-grey);
+  background: var(--bg);
+  font-size: 14px;
+}
+a,
+.btn-link {
+  text-decoration: none;
+}
+.form-control {
+  background-color: var(--dark-grey);
+  border: none;
+  color: var(--medium-grey);
+  border-radius: 3px;
+
+  &:focus,
+  &:active {
+    background-color: var(--dark-grey);
+    border: none;
+    color: var(--medium-grey);
+    box-shadow: none;
+  }
+}
+
+.btn-primary {
+  background-color: var(--btn-violet);
+  border-radius: 3px;
+  color: var(--light-grey);
+  border-color: var(--btn-violet);
+  &:hover {
+    background-color: var(--violet);
+    border-color: var(--violet);
+  }
+  &:active {
+    background-color: var(--btn-violet-dark) !important;
+    border-color: var(--btn-violet-dark) !important;
+  }
+}
+.btn-link {
+  color: var(--light-grey);
+  &:hover,
+  &:active {
+    color: var(--light-grey);
+  }
+}
+
+a {
+  color: var(--light-grey);
+}

@@ -1,0 +1,35 @@
+.postCard {
+  border: 1px solid var(--border-grey);
+  padding: 20px;
+  border-radius: 15px;
+  background: var(--dark-grey);
+  margin-bottom: 35px;
+}
+
+.postImage {
+  border-radius: 15px;
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.postedDate {
+  margin-left: 10px;
+  font-size: 14px;
+  color: var(--medium-grey);
+  text-transform: lowercase;
+}
+
+.location {
+  font-size: 14px;
+  color: var(--medium-grey);
+  text-transform: capitalize;
+}
+
+.likeButton {
+  cursor: pointer;
+}
+
+.saveButton {
+  padding: 0;
+}

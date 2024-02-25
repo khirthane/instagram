@@ -1,0 +1,64 @@
+.header {
+  padding: 10px;
+  border-bottom: 1px solid var(--border-grey);
+  display: none;
+}
+.headerContainer {
+  height: 100vh;
+  background: var(--dark-grey);
+  border-right: 1px solid var(--border-grey);
+  position: fixed;
+  width: 330px;
+}
+.sideContainer {
+  height: 100vh;
+  background: var(--dark-grey);
+  border-left: 1px solid var(--border-grey);
+  position: fixed;
+  right: 0;
+  width: 400px;
+}
+.mainContainer {
+  margin: 20px auto 0;
+}
+.navigationLink {
+  margin: 20px 20px 0 0;
+  list-style-type: none;
+  &.isActive {
+    background-color: var(--violet);
+    border-radius: 7px;
+    .navLink {
+      color: var(--white);
+    }
+  }
+}
+.navLink {
+  text-decoration: none;
+  padding: 10px 20px;
+  width: 100%;
+  text-align: left;
+  &:hover {
+    background-color: var(--violet);
+  }
+}
+.profileImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.profileName {
+  display: flex;
+  margin-left: 10px;
+  font-size: 20px;
+}
+.userName {
+  margin-left: 10px;
+  font-size: 14px;
+  color: var(--medium-grey);
+  text-transform: lowercase;
+}
+.navigationBottom {
+  bottom: 30px;
+  position: absolute;
+  margin-left: 30px;
+}
