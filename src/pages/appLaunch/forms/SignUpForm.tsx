@@ -14,7 +14,7 @@ const schema = z.object({
 });
 
 const SignUpForm = () => {
-  const { checkAuthUser, isLoading: isUserloading } = useUserContext();
+  const { checkAuthUser, isLoading: isUserLoading } = useUserContext();
   const navigate = useNavigate();
   const {
     register,
@@ -81,7 +81,7 @@ const SignUpForm = () => {
 
         <div className='row mb-4'>
           <button type='submit' disabled={isSubmitting} className='btn btn-primary'>
-            {intl.signUp}
+            {isUserLoading ? <span>({intl.loading})</span> : <>{intl.signUp}</>}
           </button>
         </div>
         <div className='row'>
