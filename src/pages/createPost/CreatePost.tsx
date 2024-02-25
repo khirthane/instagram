@@ -19,10 +19,10 @@ const postSchema = z.object({
 
 type PostFormProps = {
   post?: Models.Document;
-  action: 'Create' | 'Update';
+  action?: 'Create' | 'Update';
 };
 
-const CreatePost = ({ post, action }: PostFormProps) => {
+const CreatePost = ({ post }: PostFormProps) => {
   const navigate = useNavigate();
   const { user } = useUserContext();
   const form = useForm<ICreatePost>({
