@@ -1,7 +1,15 @@
 .header {
   padding: 10px;
   border-bottom: 1px solid var(--border-grey);
-  display: none;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  background-color: var(--dark-grey);
+
+  @media (min-width: 768px) {
+    display: none;
+  }
 }
 .headerContainer {
   height: 100vh;
@@ -9,6 +17,13 @@
   border-right: 1px solid var(--border-grey);
   position: fixed;
   width: 330px;
+  display: none;
+  padding: 20px;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
 }
 .sideContainer {
   height: 100vh;
@@ -16,10 +31,33 @@
   border-left: 1px solid var(--border-grey);
   position: fixed;
   right: 0;
-  width: 400px;
+  display: none;
+  overflow: scroll;
+  padding: 20px;
+  flex-direction: column;
+  gap: 30px;
+  width: 300px;
+
+  @media (min-width: 1280px) {
+    display: flex;
+  }
 }
 .mainContainer {
-  margin: 20px auto 0;
+  display: flex;
+  overflow: auto;
+  padding: 20px;
+  flex-direction: column;
+  flex: 1 1 0%;
+  gap: 2.5rem;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  @media (min-width: 1024px) {
+    padding: 35px;
+  }
 }
 .navigationLink {
   margin: 20px 20px 0 0;

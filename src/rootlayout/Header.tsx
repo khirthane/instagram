@@ -1,6 +1,7 @@
 import { useSignOutAccount } from '@/utils/react-query/queries';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
+import Logo from './Logo';
 import './rootlayout.scss';
 
 const Header = () => {
@@ -13,7 +14,9 @@ const Header = () => {
 
   return (
     <section className='header'>
-      <div className='d-flex justify-content-start'>Header</div>
+      <div className='d-flex justify-content-start '>
+        <Logo />
+      </div>
       <div className='d-flex justify-content-end'>
         <button className='btn btn-link' onClick={() => signOut()}>
           Logout

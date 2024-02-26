@@ -1,10 +1,15 @@
 import { Outlet } from 'react-router';
+import RightContainer from './RightContainer';
 
 const PageContainer = () => {
   return (
-    <main className='mainContainer d-flex justify-content-center'>
-      <div className='col-lg-6'>
+    <main className='d-flex'>
+      <div className='mainContainer'>
         <Outlet />
+      </div>
+
+      <div className='sideContainer'>
+        <RightContainer />
       </div>
     </main>
   );

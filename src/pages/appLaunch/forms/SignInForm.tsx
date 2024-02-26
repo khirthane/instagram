@@ -52,7 +52,7 @@ const SignInForm = () => {
 
   return (
     <div className='h-100 d-flex align-items-center justify-content-center'>
-      <form className='signInForm col-md-4' onSubmit={handleSubmit(onSubmit)}>
+      <form className='signInForm' onSubmit={handleSubmit(onSubmit)}>
         <h3 className='mb-4 d-flex justify-content-center'>{intl.loginToYourAccount}</h3>
         <div className='row mb-4'>
           <label className='px-0 mb-1' htmlFor='email'>
