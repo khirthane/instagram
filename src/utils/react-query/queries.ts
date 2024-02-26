@@ -10,6 +10,7 @@ import {
 import {
   createUserAccountApi,
   getCurrentUser,
+  getTopUsersApi,
   signInAccountApi,
   signOutAccountApi,
 } from '../appwrite/userApi';
@@ -110,5 +111,12 @@ export const useRemovedSavePost = () => {
         queryKey: [QUERY_KEYS.GET_CURRENT_USER],
       });
     },
+  });
+};
+
+export const useTopUsers = () => {
+  return useQuery({
+    queryKey: [QUERY_KEYS.GET_TOP_USERS],
+    queryFn: getTopUsersApi,
   });
 };

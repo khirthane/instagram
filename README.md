@@ -1,4 +1,8 @@
-# React + TypeScript + Vite
+# Mini Instagram with React + AppWrite
+
+Appwrite acts as backend server software for building web application. It provides various services and functionalities commonly needed in modern applications, such as user authentication, database management, file storage.
+
+Thw user authentication and database manegement is been handled from the AppWrite.
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -22,7 +26,7 @@ export default {
     project: ['./tsconfig.json', './tsconfig.node.json'],
     tsconfigRootDir: __dirname,
   },
-}
+};
 ```
 
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`

@@ -103,3 +103,20 @@ export async function signOutAccountApi() {
     console.log(error);
   }
 }
+
+// GET TOP Users
+export async function getTopUsersApi() {
+  try {
+    const users = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.userCollectionId,
+      [Query.orderDesc('$createdAt')],
+    );
+
+    if (!users) throw Error;
+
+    return users;
+  } catch (error) {
+    console.log(error);
+  }
+}

@@ -44,7 +44,7 @@ const CreatePost = ({ post }: PostFormProps) => {
     navigate('/');
   };
   return (
-    <>
+    <div className='col-12 col-md-6'>
       <FormProvider {...form}>
         <h5>{intl.createPost}</h5>
         <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -86,7 +86,7 @@ const CreatePost = ({ post }: PostFormProps) => {
           </div>
         </form>
       </FormProvider>
-    </>
+    </div>
   );
 };
 

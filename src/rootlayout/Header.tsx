@@ -13,16 +13,18 @@ const Header = () => {
   }, [isSuccess]);
 
   return (
-    <section className='header'>
-      <div className='d-flex justify-content-start '>
-        <Logo />
+    <header className='header'>
+      <div className='d-flex justify-content-between'>
+        <div className='mt-2'>
+          <Logo />
+        </div>
+        <div className='d-flex justify-content-end'>
+          <button className='btn btn-link' onClick={() => signOut()}>
+            Logout
+          </button>
+        </div>
       </div>
-      <div className='d-flex justify-content-end'>
-        <button className='btn btn-link' onClick={() => signOut()}>
-          Logout
-        </button>
-      </div>
-    </section>
+    </header>
   );
 };
 

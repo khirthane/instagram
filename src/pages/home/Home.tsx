@@ -14,9 +14,9 @@ const Home = () => {
         </div>
       )}
       {isError && <div className='error'>Error</div>}
-      {post?.documents.map((post: Models.Document) => (
-        <PostCard post={post} key={post.$id} />
-      ))}
+      <div className='postContainer'>
+        {post?.documents.map((post: Models.Document) => <PostCard post={post} key={post.$id} />)}
+      </div>
     </>
   );
 };
