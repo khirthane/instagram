@@ -4,7 +4,6 @@ import intl from '@/utils/locales/en.json';
 import { useCreateUserAccount, useSignInAccount } from '@/utils/react-query/queries';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { isError } from 'react-query';
 import { Link, useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 
@@ -84,7 +83,6 @@ const SignUpForm = () => {
             {isUserLoading ? <span>({intl.loading})</span> : <>{intl.signUp}</>}
           </button>
         </div>
-        <div className='row'>{isError && <div>{error.message}</div>}</div>
         <div className='row'>
           <p className='d-flex justify-content-center'>
             {intl.alreadyHaveAnAccount}
