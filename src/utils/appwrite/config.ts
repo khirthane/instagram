@@ -2,11 +2,11 @@ import { Account, Avatars, Client, Databases, Storage } from 'appwrite';
 export const appwriteConfig = {
   projectId: import.meta.env.VITE_APPWRITE_PROJECT_ID,
   url: import.meta.env.VITE_APPWRITE_URL,
-  databaseId: import.meta.env.VITE_APPWRITE_DATABASE_ID,
-  storageId: import.meta.env.VITE_APPWRITE_STORAGE_ID,
-  savedCollectionId: import.meta.env.VITE_APPWRITE_SAVED_COLLECTION,
-  userCollectionId: import.meta.env.VITE_APPWRITE_USERS_COLLECTION,
-  postCollectionId: import.meta.env.VITE_APPWRITE_POST_COLLECTION,
+  databaseId: '65bcd985e81602fc82c5',
+  storageId: '65bcd18f8d6ec4fb4837',
+  savedCollectionId: '65bcd9fe59a4cf7b5432',
+  userCollectionId: '65bcd9c624f44dedc190',
+  postCollectionId: '65bcd9b1258865b12624',
 };
 
 export const client = new Client();

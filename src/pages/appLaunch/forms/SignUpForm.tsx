@@ -4,6 +4,7 @@ import intl from '@/utils/locales/en.json';
 import { useCreateUserAccount, useSignInAccount } from '@/utils/react-query/queries';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { isError } from 'react-query';
 import { Link, useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 
@@ -25,14 +26,13 @@ const SignUpForm = () => {
     resolver: zodResolver(schema),
   });
 
-  // Queries
   const { mutateAsync: createUserAccount } = useCreateUserAccount();
   const { mutateAsync: signInAccount } = useSignInAccount();
 
   const onSubmit: SubmitHandler<INewUser> = async (data: INewUser) => {
     console.log(data);
 
-    const newUser = createUserAccount(data);
+    const newUser = await createUserAccount(data);
 
     if (!newUser) console.log('Not able to create user, Please try again');
 
@@ -84,9 +84,10 @@ const SignUpForm = () => {
             {isUserLoading ? <span>({intl.loading})</span> : <>{intl.signUp}</>}
           </button>
         </div>
+        <div className='row'>{isError && <div>{error.message}</div>}</div>
         <div className='row'>
           <p className='d-flex justify-content-center'>
-            {intl.alreadyHaveAnAccount}{' '}
+            {intl.alreadyHaveAnAccount}
             <span className='ms-2'>
               <Link to='/sign-in'>{intl.signIn}</Link>
             </span>
