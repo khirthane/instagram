@@ -32,7 +32,7 @@ export type UserType = {
   liked: string;
   accountId: string;
   imageId: string;
-  save: string[];
+  save: Models.Document[];
 };
 
 export type Post = {
@@ -43,7 +43,7 @@ export type Post = {
   imageUrl: string;
   imageId: string;
   location: string;
-  post: string[];
+  post: Models.Document[];
 };
 
 export type IPost = Models.Document & Post;
