@@ -1,7 +1,7 @@
 @import 'utils/styles/_color.scss';
 
-body {
-  color: var(--light-grey);
+.app {
+  color: var(--text-grey);
   background: var(--bg);
   font-size: 14px;
 }
@@ -10,14 +10,14 @@ a,
   text-decoration: none;
 }
 .form-control {
-  background-color: var(--dark-grey);
+  background-color: var(--nav-grey);
   border: none;
   color: var(--medium-grey);
   border-radius: 3px;
 
   &:focus,
   &:active {
-    background-color: var(--dark-grey);
+    background-color: var(--nav-grey);
     border: none;
     color: var(--medium-grey);
     box-shadow: none;
@@ -27,7 +27,7 @@ a,
 .btn.btn-primary {
   background-color: var(--btn-violet);
   border-radius: 3px;
-  color: var(--light-grey);
+  color: var(--white);
   border-color: var(--btn-violet);
   &:hover {
     background-color: var(--violet);
@@ -44,13 +44,22 @@ a,
   }
 }
 .btn-link {
-  color: var(--light-grey);
+  color: var(--text-grey);
   &:hover,
   &:active {
-    color: var(--light-grey);
+    color: var(--text-grey);
   }
 }
 
 a {
-  color: var(--light-grey);
+  color: var(--text-grey);
+}
+
+.card {
+  width: 100%;
+  background: var(--nav-grey);
+  border: 1px solid var(--border-grey);
+  padding: 20px;
+  border-radius: 10px;
+  color: var(--text-grey);
 }

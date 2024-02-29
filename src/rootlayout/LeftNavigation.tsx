@@ -15,37 +15,39 @@ const LeftNavigation = () => {
   }, [isSuccess]);
   return (
     <>
-      <div className='d-flex justify-content-center my-4'>
-        <Logo />
-      </div>
-      <Link to='/profile'>
-        <div className='d-flex flex-row justify-content-center'>
-          <div className='profileImage'>
-            <img
-              className='profileImg'
-              src={user.imageUrl ? user.imageUrl : '/assets/profile/profilePic.jpg'}
-              alt='profile'
-            />
-          </div>
-          <div className='align-items-center'>
-            <div className='profileName'>{user.name || user.username}</div>
-            <p className='userName'> @{user.username}</p>
-          </div>
+      <div className='navContainer'>
+        <div className='d-flex justify-content-center mb-4'>
+          <Logo />
         </div>
-      </Link>
+        <Link to='/profile'>
+          <div className='d-flex flex-row justify-content-center'>
+            <div className='profileImage'>
+              <img
+                className='profileImg'
+                src={user.imageUrl ? user.imageUrl : '/assets/profile/profilePic.jpg'}
+                alt='profile'
+              />
+            </div>
+            <div className='align-items-center'>
+              <div className='profileName'>{user.name || user.username}</div>
+              <p className='userName'> @{user.username}</p>
+            </div>
+          </div>
+        </Link>
 
-      <ul className='d-flex flex-column'>
-        {NavBarLinks.map((link) => {
-          const isActive = pathname === link.route;
-          return (
-            <li key={link.route} className={`navigationLink ${isActive ? 'isActive' : ''}`}>
-              <NavLink to={link.route} className='navLink btn btn-link'>
-                {link.label}
-              </NavLink>
-            </li>
-          );
-        })}
-      </ul>
+        <ul className='d-flex flex-column'>
+          {NavBarLinks.map((link) => {
+            const isActive = pathname === link.route;
+            return (
+              <li key={link.route} className={`navigationLink ${isActive ? 'isActive' : ''}`}>
+                <NavLink to={link.route} className='navLink btn btn-link'>
+                  {link.label}
+                </NavLink>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
       {/* Signout Button */}
       <div className='d-flex flex-column'>
         <div className='navigationBottom navigationLink'>

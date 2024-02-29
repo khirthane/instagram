@@ -1,10 +1,10 @@
 import { ID, Query } from 'appwrite';
 
-import { INewUser } from '@/types';
+import { INewUser, IUser, IUserList } from '@/types';
 import { account, appwriteConfig, avatars, databases } from './config';
 
 // SIGN UP
-export async function createUserAccountApi(user: INewUser) {
+export async function createUserAccountApi(user: INewUser): Promise<IUser> {
   try {
     const newAccount = await account.create(ID.unique(), user.email, user.password, user.name);
 
@@ -12,7 +12,7 @@ export async function createUserAccountApi(user: INewUser) {
 
     const avatarUrl = avatars.getInitials(user.name);
 
-    const newUser = await saveUserToDB({
+    const newUser: IUser = await saveUserToDB({
       accountId: newAccount.$id,
       name: newAccount.name,
       email: newAccount.email,
@@ -23,7 +23,7 @@ export async function createUserAccountApi(user: INewUser) {
     return newUser;
   } catch (error) {
     console.log(error);
-    return error;
+    throw new Error('Not able to create a new user');
   }
 }
 
@@ -36,7 +36,7 @@ export async function saveUserToDB(user: {
   username?: string;
 }) {
   try {
-    const newUser = await databases.createDocument(
+    const newUser: IUser = await databases.createDocument(
       appwriteConfig.databaseId,
       appwriteConfig.userCollectionId,
       ID.unique(),
@@ -45,7 +45,7 @@ export async function saveUserToDB(user: {
 
     return newUser;
   } catch (error) {
-    console.log(error);
+    throw new Error('Not able to create a new user');
   }
 }
 
@@ -72,13 +72,13 @@ export async function getAccount() {
 }
 
 // GET USER
-export async function getCurrentUser() {
+export async function getCurrentUser(): Promise<IUser> {
   try {
     const currentAccount = await getAccount();
 
     if (!currentAccount) throw Error;
 
-    const currentUser = await databases.listDocuments(
+    const currentUser: IUserList = await databases.listDocuments(
       appwriteConfig.databaseId,
       appwriteConfig.userCollectionId,
       [Query.equal('accountId', currentAccount.$id)],
@@ -89,7 +89,7 @@ export async function getCurrentUser() {
     return currentUser.documents[0];
   } catch (error) {
     console.log(error);
-    return null;
+    throw new Error('Not able to get the User data');
   }
 }
 
@@ -105,9 +105,9 @@ export async function signOutAccountApi() {
 }
 
 // GET TOP Users
-export async function getTopUsersApi() {
+export async function getTopUsersApi(): Promise<IUserList> {
   try {
-    const users = await databases.listDocuments(
+    const users: IUserList = await databases.listDocuments(
       appwriteConfig.databaseId,
       appwriteConfig.userCollectionId,
       [Query.orderDesc('$createdAt')],
@@ -117,6 +117,6 @@ export async function getTopUsersApi() {
 
     return users;
   } catch (error) {
-    console.log(error);
+    throw new Error('Not able to get the Users list');
   }
 }

@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { IUser } from '@/types';
+import { ICreateUser } from '@/types';
 import { getCurrentUser } from '@/utils/appwrite/userApi';
 
 export const INITIAL_USER = {
@@ -23,9 +23,9 @@ const INITIAL_STATE = {
 };
 
 type IContextType = {
-  user: IUser;
+  user: ICreateUser;
   isLoading: boolean;
-  setUser: React.Dispatch<React.SetStateAction<IUser>>;
+  setUser: React.Dispatch<React.SetStateAction<ICreateUser>>;
   isAuthenticated: boolean;
   setIsAuthenticated: React.Dispatch<React.SetStateAction<boolean>>;
   checkAuthUser: () => Promise<boolean>;
@@ -35,7 +35,7 @@ const AuthContext = createContext<IContextType>(INITIAL_STATE);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const navigate = useNavigate();
-  const [user, setUser] = useState<IUser>(INITIAL_USER);
+  const [user, setUser] = useState<ICreateUser>(INITIAL_USER);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 

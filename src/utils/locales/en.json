@@ -19,5 +19,7 @@
   "caption": "Caption",
   "photos": "Photos",
   "tags": "Tags",
-  "location": "Location"
+  "location": "Location",
+  "myProfile": "My Profile",
+  "topUsers": "Top Users"
 }

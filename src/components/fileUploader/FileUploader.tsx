@@ -49,7 +49,7 @@ const FileUploader = ({ name }: FileUploaderProps) => {
             </div>
           ) : (
             <div className='d-flex flex-column align-items-center justify-content-center'>
-              <img src='/assets/images/upload.png' alt='File Upload'></img>
+              <img src='/assets/images/upload.svg' alt='File Upload'></img>
               <p>Drag and drop images here, or click to select files</p>
             </div>
           )}

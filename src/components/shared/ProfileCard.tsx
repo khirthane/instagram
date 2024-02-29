@@ -1,8 +1,8 @@
-import { Models } from 'appwrite';
+import { IUser } from '@/types';
 import { Link } from 'react-router-dom';
 
 export type UserProfileProps = {
-  user: Models.Document;
+  user: IUser;
 };
 
 const ProfileCard = ({ user }: UserProfileProps) => {

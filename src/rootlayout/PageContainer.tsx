@@ -3,7 +3,7 @@ import RightContainer from './RightContainer';
 
 const PageContainer = () => {
   return (
-    <main className='d-flex'>
+    <main className='d-flex flex-fill'>
       <div className='mainContainer'>
         <Outlet />
       </div>
