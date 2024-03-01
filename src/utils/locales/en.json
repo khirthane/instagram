@@ -21,5 +21,12 @@
   "tags": "Tags",
   "location": "Location",
   "myProfile": "My Profile",
-  "topUsers": "Top Users"
+  "topUsers": "Top Users",
+  "logout": "Logout",
+  "personalInformation": "Personal Information",
+  "name": "Name",
+  "email": "Email",
+  "bio": "Bio",
+  "edit": "Edit",
+  "editProfile": "Edit Profile"
 }

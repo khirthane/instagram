@@ -1,5 +1,8 @@
 @import 'utils/styles/_color.scss';
 
+body {
+  overflow: hidden;
+}
 .app {
   color: var(--text-grey);
   background: var(--bg);
@@ -50,6 +53,10 @@ a,
     color: var(--text-grey);
   }
 }
+.btn-icon {
+  border: none;
+  background-color: transparent;
+}
 
 a {
   color: var(--text-grey);
@@ -58,8 +65,11 @@ a {
 .card {
   width: 100%;
   background: var(--nav-grey);
-  border: 1px solid var(--border-grey);
   padding: 20px;
   border-radius: 10px;
   color: var(--text-grey);
+  border: none;
+  label {
+    color: var(--medium-grey);
+  }
 }

@@ -8,6 +8,7 @@ import SignUpForm from './pages/appLaunch/forms/SignUpForm';
 import CreatePost from './pages/createPost/CreatePost';
 import Explore from './pages/explore/Explore';
 import Home from './pages/home/Home';
+import EditProfile from './pages/profile/EditProfile';
 import Profile from './pages/profile/Profile';
 import RootLayout from './rootlayout/RootLayout';
 
@@ -26,6 +27,7 @@ function App() {
             <Route path='/profile' element={<Profile />} />
             <Route path='/explore' element={<Explore />} />
             <Route path='/settings' element={<Settings />} />
+            <Route path='/edit-profile' element={<EditProfile />} />
           </Route>
         </Routes>
       </main>

@@ -1,5 +1,6 @@
 import { NavBarLinks } from '@/constants';
 import { useUserContext } from '@/context/AuthContext';
+import intl from '@/utils/locales/en.json';
 import { useSignOutAccount } from '@/utils/react-query/queries';
 import { useEffect } from 'react';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
@@ -52,7 +53,7 @@ const LeftNavigation = () => {
       <div className='d-flex flex-column'>
         <div className='navigationBottom navigationLink'>
           <button className='btn btn-link navLink' onClick={() => signOut()}>
-            Logout
+            {intl.logout}
           </button>
         </div>
       </div>

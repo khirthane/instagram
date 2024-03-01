@@ -19,8 +19,6 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem('theme', theme);
-    const currentTheme = theme === 'light' ? 'light' : 'dark';
-    document.documentElement.className = currentTheme;
   }, [theme]);
 
   const toggleTheme = () => {
