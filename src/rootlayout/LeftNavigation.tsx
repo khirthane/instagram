@@ -1,16 +1,17 @@
+import ProfileCard from '@/components/shared/ProfileCard';
 import { NavBarLinks } from '@/constants';
-import { useUserContext } from '@/context/AuthContext';
 import intl from '@/utils/locales/en.json';
-import { useSignOutAccount } from '@/utils/react-query/queries';
+import { useCurrentUser, useSignOutAccount } from '@/utils/react-query/queries';
 import { useEffect } from 'react';
-import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import Logo from './Logo';
 
 const LeftNavigation = () => {
-  const { user } = useUserContext();
+  const { data: user } = useCurrentUser();
   const { pathname } = useLocation();
   const { mutate: signOut, isSuccess } = useSignOutAccount();
   const navigate = useNavigate();
+
   useEffect(() => {
     if (isSuccess) navigate(0);
   }, [isSuccess]);
@@ -20,21 +21,11 @@ const LeftNavigation = () => {
         <div className='d-flex justify-content-center mb-4'>
           <Logo />
         </div>
-        <Link to='/profile'>
-          <div className='d-flex flex-row justify-content-center'>
-            <div className='profileImage'>
-              <img
-                className='profileImg'
-                src={user.imageUrl ? user.imageUrl : '/assets/profile/profilePic.jpg'}
-                alt='profile'
-              />
-            </div>
-            <div className='align-items-center'>
-              <div className='profileName'>{user.name || user.username}</div>
-              <p className='userName'> @{user.username}</p>
-            </div>
+        {user && (
+          <div className='d-flex justify-content-center'>
+            <ProfileCard user={user} imageSize={50} />
           </div>
-        </Link>
+        )}
 
         <ul className='d-flex flex-column'>
           {NavBarLinks.map((link) => {

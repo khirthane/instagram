@@ -8,11 +8,13 @@ import {
   savePostApi,
 } from '../appwrite/postApi';
 import {
+  UserUpdate,
   createUserAccountApi,
   getCurrentUser,
   getTopUsersApi,
   signInAccountApi,
   signOutAccountApi,
+  updateUserApi,
 } from '../appwrite/userApi';
 import { QUERY_KEYS } from './queryKeys';
 
@@ -118,5 +120,21 @@ export const useTopUsers = () => {
   return useQuery({
     queryKey: [QUERY_KEYS.GET_TOP_USERS],
     queryFn: getTopUsersApi,
+  });
+};
+
+export const useUpdateUser = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: ({ user, userId, image }: UserUpdate) => updateUserApi({ user, userId, image }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: [QUERY_KEYS.GET_CURRENT_USER],
+      });
+      queryClient.invalidateQueries({
+        queryKey: [QUERY_KEYS.GET_TOP_USERS],
+      });
+    },
   });
 };

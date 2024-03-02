@@ -21,21 +21,26 @@ export type ICreateUser = {
   bio: string;
 };
 
-export type UserType = {
+export type IUser = {
   id: string;
   name: string;
   username: string;
   email: string;
-  imageUrl: string;
+  imageUrl: URL;
   bio: string;
   post: string;
   liked: string;
   accountId: string;
   imageId: string;
   save: Models.Document[];
+  themeType: string;
+  contactNo: string;
+  location: string;
+  country: string;
+  postalCode: string;
 };
 
-export type Post = {
+export type IPost = {
   creator: string;
   likes: string[];
   caption: string;
@@ -46,10 +51,10 @@ export type Post = {
   post: Models.Document[];
 };
 
-export type IPost = Models.Document & Post;
-export type IUser = Models.Document & UserType;
+export type IModelPost = Models.Document & IPost;
+export type IModelUser = Models.Document & IUser;
 
 export type IUserList = {
   total: number;
-  documents: IUser[];
+  documents: IModelUser[];
 };

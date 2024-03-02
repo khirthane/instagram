@@ -13,17 +13,21 @@ a,
   text-decoration: none;
 }
 .form-control {
-  background-color: var(--nav-grey);
+  background-color: var(--form-grey);
   border: none;
   color: var(--medium-grey);
   border-radius: 3px;
 
   &:focus,
   &:active {
-    background-color: var(--nav-grey);
+    background-color: var(--form-grey);
     border: none;
     color: var(--medium-grey);
     box-shadow: none;
+  }
+  &:disabled {
+    background-color: var(--nav-grey);
+    padding: 0;
   }
 }
 

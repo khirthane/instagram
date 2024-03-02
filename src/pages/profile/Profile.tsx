@@ -20,7 +20,7 @@ const Profile = () => {
         <>
           <div className='card'>
             <div className='d-flex justify-content-between'>
-              <ProfileCard user={currentUser} />
+              <ProfileCard user={currentUser} imageSize={150} />
 
               <div className='profileEdit'>
                 <button onClick={onEditClick} className='btn-icon'>
@@ -48,6 +48,10 @@ const Profile = () => {
               <div className='col-6'>
                 <label>{intl.bio}</label>
                 <p>{currentUser?.bio}</p>
+              </div>
+              <div className='col-6'>
+                <label>{intl.contactNo}</label>
+                <p>{currentUser?.contactNo}</p>
               </div>
             </div>
           </div>

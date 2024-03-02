@@ -1,10 +1,11 @@
 import { ID, Query } from 'appwrite';
 
-import { INewUser, IUser, IUserList } from '@/types';
+import { IModelUser, INewUser, IUser, IUserList } from '@/types';
 import { account, appwriteConfig, avatars, databases } from './config';
+import { deleteFileApi, getFilePreview, uploadFileApi } from './postApi';
 
 // SIGN UP
-export async function createUserAccountApi(user: INewUser): Promise<IUser> {
+export async function createUserAccountApi(user: INewUser): Promise<IModelUser> {
   try {
     const newAccount = await account.create(ID.unique(), user.email, user.password, user.name);
 
@@ -12,7 +13,7 @@ export async function createUserAccountApi(user: INewUser): Promise<IUser> {
 
     const avatarUrl = avatars.getInitials(user.name);
 
-    const newUser: IUser = await saveUserToDB({
+    const newUser: IModelUser = await saveUserToDB({
       accountId: newAccount.$id,
       name: newAccount.name,
       email: newAccount.email,
@@ -36,7 +37,7 @@ export async function saveUserToDB(user: {
   username?: string;
 }) {
   try {
-    const newUser: IUser = await databases.createDocument(
+    const newUser: IModelUser = await databases.createDocument(
       appwriteConfig.databaseId,
       appwriteConfig.userCollectionId,
       ID.unique(),
@@ -72,7 +73,7 @@ export async function getAccount() {
 }
 
 // GET USER
-export async function getCurrentUser(): Promise<IUser> {
+export async function getCurrentUser(): Promise<IModelUser> {
   try {
     const currentAccount = await getAccount();
 
@@ -117,6 +118,41 @@ export async function getTopUsersApi(): Promise<IUserList> {
 
     return users;
   } catch (error) {
-    throw new Error('Not able to get the Users list');
+    throw new Error('Not able to get the users list');
+  }
+}
+
+// Update User
+export type UserUpdate = {
+  user: IUser;
+  userId: string;
+  image?: File;
+};
+export async function updateUserApi({ user, userId, image }: UserUpdate) {
+  try {
+    if (image) {
+      const uploadedFile = await uploadFileApi(image);
+      if (!uploadedFile) throw Error;
+
+      // Get file url
+      const fileUrl = getFilePreview(uploadedFile.$id);
+      if (!fileUrl) {
+        await deleteFileApi(uploadedFile.$id);
+        throw Error;
+      }
+      user.imageUrl = fileUrl;
+    }
+    const users = await databases.updateDocument(
+      appwriteConfig.databaseId,
+      appwriteConfig.userCollectionId,
+      userId,
+      user,
+    );
+
+    if (!users) throw Error;
+
+    return users;
+  } catch (error) {
+    throw new Error('Not able to update the user');
   }
 }

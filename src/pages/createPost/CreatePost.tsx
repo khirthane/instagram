@@ -8,7 +8,6 @@ import { Models } from 'appwrite';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
 import { z } from 'zod';
-import './createPost.scss';
 
 const postSchema = z.object({
   caption: z.string(),

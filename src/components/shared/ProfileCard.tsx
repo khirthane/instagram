@@ -1,25 +1,28 @@
-import { IUser } from '@/types';
+import { IModelUser } from '@/types';
 import { Link } from 'react-router-dom';
 
 export type UserProfileProps = {
-  user: IUser;
+  user: IModelUser;
+  imageSize?: number;
 };
 
-const ProfileCard = ({ user }: UserProfileProps) => {
+const ProfileCard = ({ user, imageSize = 50 }: UserProfileProps) => {
   return (
     <>
       <Link to='/profile'>
         <div className='d-flex'>
-          <div className='profileImage'>
+          <div className='profileImageContainer'>
             <img
               className='profileImg'
-              src={user?.imageUrl ? user?.imageUrl : '/assets/profile/profilePic.jpg'}
+              src={user?.imageUrl.toString()}
+              width={imageSize}
+              height={imageSize}
               alt='profile'
             />
           </div>
-          <div className='align-items-center'>
+          <div className='d-flex flex-column justify-content-center'>
             <div className='profileName'>{user?.name || user?.username}</div>
-            <p className='userName'> @{user?.username}</p>
+            <div className='userName'> @{user?.username}</div>
           </div>
         </div>
       </Link>

@@ -17,10 +17,10 @@ const RightContainer = () => {
           <Loader size={30} />
         </div>
       )}
-      <div className='mt-4'>
+      <div className='topProfiles'>
         {users?.documents.map((user) => (
-          <div key={user.$id}>
-            <ProfileCard user={user} />{' '}
+          <div key={user.$id} className='mb-4'>
+            <ProfileCard user={user} />
           </div>
         ))}
       </div>
