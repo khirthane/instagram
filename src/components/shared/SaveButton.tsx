@@ -1,8 +1,8 @@
 import { useCurrentUser, useRemovedSavePost, useSavePost } from '@/utils/react-query/queries';
 import { Models } from 'appwrite';
 import { useEffect, useState } from 'react';
-import Loader from '../shared/Loader';
-import { PostCardProps } from './PostCard';
+import { PostCardProps } from '../postCard/PostCard';
+import Loader from './Loader';
 
 const SaveButton = ({ post }: PostCardProps) => {
   const { mutate: savePost, isPending } = useSavePost();

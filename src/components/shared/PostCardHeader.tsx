@@ -7,7 +7,7 @@ const PostCardHeader = ({ post }: PostCardProps) => {
     <Link to='/profile'>
       <div className='d-flex'>
         <div className='d-flex flex-row justify-content-center mb-4'>
-          <img src={post?.creator?.imageUrl} className='profileImg' />
+          <img src={post?.creator?.imageUrl} className='profileImg' width={50} height={50} />
           <div className='align-items-center'>
             <div className='profileName'>{post?.creator?.name || post?.creator?.username}</div>
             <span className='postedDate'>

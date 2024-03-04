@@ -98,7 +98,7 @@ export async function getCurrentUser(): Promise<IModelUser> {
 export async function signOutAccountApi() {
   try {
     const session = await account.deleteSession('current');
-
+    localStorage.removeItem('cookieFallback');
     return session;
   } catch (error) {
     console.log(error);

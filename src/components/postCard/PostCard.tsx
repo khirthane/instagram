@@ -1,8 +1,7 @@
 import { Models } from 'appwrite';
-import LikeButton from './LikeButton';
-import PostCardHeader from './PostCardHeader';
-import SaveButton from './SaveButton';
-import './postCard.scss';
+import LikeButton from '../shared/LikeButton';
+import PostCardHeader from '../shared/PostCardHeader';
+import SaveButton from '../shared/SaveButton';
 
 export type PostCardProps = {
   post: Models.Document;

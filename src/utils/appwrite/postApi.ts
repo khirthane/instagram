@@ -142,3 +142,21 @@ export async function removeSavedPostApi(savedPostId: string) {
     console.log(error);
   }
 }
+
+export async function getInfinitePostApi({ pageParam }: { pageParam: number }) {
+  try {
+    const queries: any[] = [Query.orderDesc('$updatedAt'), Query.limit(8)];
+    if (pageParam) {
+      queries.push(Query.cursorAfter(pageParam.toString()));
+    }
+
+    const post = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.postCollectionId,
+      [Query.orderDesc('$updatedAt'), Query.limit(9)],
+    );
+    return post;
+  } catch (error) {
+    throw new Error('Not able to fetch the post');
+  }
+}

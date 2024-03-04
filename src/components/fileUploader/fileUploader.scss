@@ -1,7 +1,8 @@
 .fileUploader {
   padding: 20px;
-  background-color: var(--nav-grey);
+  background-color: var(--form-grey);
   min-height: 200px;
+  border-radius: 5px;
 }
 .uploadContainer {
   user-select: none;

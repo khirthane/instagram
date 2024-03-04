@@ -4,4 +4,5 @@ export enum QUERY_KEYS {
   GET_POST = 'getPosts',
   GET_CURRENT_USER = 'getCurrentUser',
   GET_TOP_USERS = 'getTopUsers',
+  GET_INFINITE_POST = 'getInfinitePost',
 }

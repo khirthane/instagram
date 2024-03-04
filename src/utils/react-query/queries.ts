@@ -1,7 +1,8 @@
 import { INewUser } from '@/types';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useInfiniteQuery, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import {
   createPostApi,
+  getInfinitePostApi,
   getRecentPostApi,
   likePostApi,
   removeSavedPostApi,
@@ -135,6 +136,24 @@ export const useUpdateUser = () => {
       queryClient.invalidateQueries({
         queryKey: [QUERY_KEYS.GET_TOP_USERS],
       });
+    },
+  });
+};
+
+export const useGetInfinitePost = () => {
+  return useInfiniteQuery({
+    queryKey: [QUERY_KEYS.GET_INFINITE_POST],
+    queryFn: getInfinitePostApi,
+    initialPageParam: 1,
+    getNextPageParam: (lastPage: any) => {
+      // If there's no data, there are no more pages.
+      if (lastPage && lastPage.documents.length === 0) {
+        return null;
+      }
+
+      // Use the $id of the last document as the cursor.
+      const lastId = lastPage.documents[lastPage.documents.length - 1].$id;
+      return lastId;
     },
   });
 };
