@@ -6,7 +6,7 @@ import { useInView } from 'react-intersection-observer';
 
 function InfinitePostList() {
   const { ref, inView } = useInView();
-  const { data: posts, fetchNextPage, hasNextPage, isLoading, isFetchingNextPage } = useGetInfinitePost();
+  const { data: posts, fetchNextPage, hasNextPage, isLoading } = useGetInfinitePost();
 
   useEffect(() => {
     if (inView) {
