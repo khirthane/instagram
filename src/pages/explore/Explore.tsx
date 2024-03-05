@@ -30,15 +30,18 @@ function InfinitePostList() {
           key={pageIndex}
           className='d-flex justify-content-center align-content-start flex-wrap gap-4 mt-4'
         >
-          {page?.documents.map((post, index) => <GridPost post={post} key={`page-${index}`}  />)}
+          {page?.documents.map((post, index) => (
+            <GridPost post={post} key={`page-${index}`} />
+          ))}
         </div>
       ))}
 
-      {hasNextPage  && (
-        <div ref={ref} className="mt-4">
+      {hasNextPage && (
+        <div ref={ref} className='mt-4'>
           <Loader />
         </div>
       )}
+      {!hasNextPage && <h4 className='d-flex justify-content-center mt-4'>End of Post</h4>}
     </div>
   );
 }
