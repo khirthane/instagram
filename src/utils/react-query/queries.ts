@@ -144,7 +144,7 @@ export const useGetInfinitePost = () => {
   return useInfiniteQuery({
     queryKey: [QUERY_KEYS.GET_INFINITE_POST],
     queryFn: getInfinitePostApi,
-    initialPageParam: 1,
+    initialPageParam: 0,
     getNextPageParam: (lastPage: any) => {
       // If there's no data, there are no more pages.
       if (lastPage && lastPage.documents.length === 0) {
