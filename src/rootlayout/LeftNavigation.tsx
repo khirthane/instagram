@@ -23,11 +23,11 @@ const LeftNavigation = () => {
         </div>
         {user && (
           <div className='d-flex justify-content-center'>
-            <ProfileCard user={user} imageSize={50} />
+            <ProfileCard user={user} imageSize={70} />
           </div>
         )}
 
-        <ul className='d-flex flex-column'>
+        <ul className='d-flex flex-column mt-4'>
           {NavBarLinks.map((link) => {
             const isActive = pathname === link.route;
             return (

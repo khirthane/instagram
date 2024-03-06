@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
-    "@tanstack/react-query-devtools": "^5.18.1",
     "appwrite": "^13.0.1",
     "bootstrap": "^5.3.2",
     "react": "^18.2.0",
@@ -32,6 +31,7 @@
     "@types/react-dom": "^18.2.15",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",
+    "@tanstack/react-query-devtools": "^5.18.1",
     "@vitejs/plugin-react": "^4.2.0",
     "eslint": "^8.53.0",
     "eslint-plugin-react-hooks": "^4.6.0",
