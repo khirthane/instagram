@@ -87,6 +87,10 @@ a {
   background: var(--nav-grey);
   margin-bottom: 35px;
   width: 500px;
+
+  @media (max-width: 768px) {
+    width: 460px;
+  }
 }
 
 .postImage {
