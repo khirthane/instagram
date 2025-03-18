@@ -54,10 +54,10 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className='h-100 d-flex align-items-center justify-content-center'>
+    <div className='h-100 d-flex flex-column align-items-center justify-content-center'>
       <Logo />
       <div className='col-5'>
-        <form className='signUpForm col-5' onSubmit={handleSubmit(onSubmit)}>
+        <form className='signUpForm' onSubmit={handleSubmit(onSubmit)}>
           <h3 className='mb-4 d-flex justify-content-center'>{intl.createANewAccount}</h3>
           <div className='row mb-4'>
             <label className='px-0 mb-1' htmlFor='username'>
